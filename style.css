@@ -1,131 +1,137 @@
 @font-face {
     font-family: 'Pribylskaia';
-    src: url('pribulskaya.otf') format('opentype');
+    src: url('fonts/pribulskaya.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 :root {
     --main-bg: #0a0a0a;
+    --card-bg: #151515;
     --main-text: #ffffff;
     --accent-gold: #FFD700;
+    --visited-gold: #d4af37;
     --oscar-red: #E32636;
     --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-hollywood: 'Pribylskaia', sans-serif; 
+    --font-hollywood: 'Pribylskaia', Georgia, serif;
 }
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-color: var(--main-bg);
     color: var(--main-text);
     font-family: var(--font-main);
-    margin: 0;
-    padding: 30px 50px;
-    overflow-x: hidden; /* Исключаем горизонтальную прокрутку */
+    line-height: 1.6;
+    padding: 0 20px;
 }
 
-/* --- Шрифты и заголовки --- */
-h1 {
-    font-size: 3.5rem;
+header {
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 2px solid var(--accent-gold);
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 3rem;
     color: var(--accent-gold);
-    margin: 0 0 10px 0;
-    text-transform: uppercase;
     letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
-h2 {
-    font-size: 1.8rem;
-    color: #ffffff;
-    margin: 0;
-}
-
-h3 {
-    font-size: 2.2rem;
-    color: var(--accent-gold);
-    margin-bottom: 25px;
-    border-left: 6px solid var(--accent-gold);
-    padding-left: 15px;
-}
-
-h4 {
+header .subtitle {
     font-size: 1.4rem;
-    color: var(--accent-gold);
-    margin: 0 0 10px 0;
+    color: #cccccc;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
 }
 
 a {
     color: var(--accent-gold);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: color 0.3s ease, background-color 0.3s ease, outline 0.2s ease;
+}
+
+a:visited {
+    color: var(--visited-gold);
 }
 
 a:hover {
-    text-decoration: underline;
+    color: var(--main-bg);
+    background-color: var(--accent-gold);
 }
 
-/* --- Навигационное меню (FLEXBOX) --- */
-header {
-    border-bottom: 3px solid var(--accent-gold);
-    padding-bottom: 20px;
-    margin-bottom: 40px;
+a:focus {
+    outline: 2px solid var(--oscar-red);
+    outline-offset: 4px;
 }
 
-.main-nav {
-    display: flex;
-    gap: 30px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.main-nav a {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* --- Основная сетка --- */
-.content-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: flex-start;
+a:active {
+    background-color: var(--oscar-red);
+    color: var(--main-text);
 }
 
 main {
-    flex: 1 1 500px;
-    min-width: 300px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-aside {
-    width: 300px;
-    background-color: #111111;
-    padding: 25px;
-    border: 1px solid #333;
-    border-top: 5px solid var(--accent-gold);
+section {
+    margin-bottom: 60px;
 }
 
-/* --- Обо мне --- */
+section h2 {
+    font-family: var(--font-hollywood);
+    font-size: 2rem;
+    color: var(--accent-gold);
+    margin-bottom: 25px;
+    border-left: 4px solid var(--oscar-red);
+    padding-left: 12px;
+}
+
 .about-section {
     display: flex;
-    gap: 40px;
     align-items: center;
-    margin-bottom: 50px;
+    gap: 35px;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #2a2a2a;
 }
 
 .avatar {
-    width: 200px;
-    height: 250px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
+    border-radius: 50%;
     border: 3px solid var(--accent-gold);
+    flex-shrink: 0;
 }
 
-.skills {
-    font-size: 1.3rem;
-    line-height: 1.8;
+.skills ul {
+    list-style-position: inside;
+    margin-top: 10px;
 }
 
-/* --- Топ-сериалов (FLEXBOX КАРТОЧКИ) --- */
+.skills li {
+    margin-bottom: 8px;
+}
+
 .flex-cards-container {
     display: flex;
     flex-wrap: wrap;
@@ -134,128 +140,170 @@ aside {
 }
 
 .movie-card {
-    flex: 1 1 calc(33.333% - 25px); /* 3 колонки на десктопе */
-    background-color: #151515;
+    position: relative;
+    flex: 0 0 calc((100% - 50px) / 3);
+    background-color: var(--card-bg);
     border: 1px solid #333;
-    display: flex;
-    flex-direction: column;
-    transition: border-color 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .movie-card:hover {
+    transform: translateY(-5px);
     border-color: var(--accent-gold);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 215, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.movie-card:hover .overlay {
+    opacity: 1;
 }
 
 .mini-poster {
     width: 100%;
-    height: 250px;
+    height: 320px;
     object-fit: cover;
-    border-bottom: 2px solid #333;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
 }
 
 .card-info {
-    padding: 20px;
+    position: relative;
+    z-index: 2;
 }
 
-.card-info p {
-    margin: 5px 0;
-    font-size: 1.1rem;
-    color: #cccccc;
-}
-
-/* --- Любимые режиссёры (CSS GRID) --- */
-.directors-section {
-    margin-bottom: 50px;
+.project-title {
+    font-size: 1.3rem;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
 }
 
 .directors-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
 }
 
 .director-card {
-    background-color: #151515;
+    background-color: var(--card-bg);
     border: 1px solid #333;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    border-radius: 8px;
     padding: 15px;
+    text-align: center;
+    transition: border-color 0.3s ease;
 }
 
-.director-photo {
-    width: 120px;
-    height: 120px;
+.director-card:hover {
+    border-color: var(--accent-gold);
+}
+
+.director-card img {
+    width: 100%;
+    height: 240px;
     object-fit: cover;
-    border-radius: 50%; /* Круглые аватарки режиссеров */
-    border: 2px solid var(--accent-gold);
+    border-radius: 6px;
+    margin-bottom: 12px;
 }
 
-.director-info p {
-    margin: 0;
-    color: #cccccc;
-    font-size: 1.1rem;
+.director-card h3 {
+    color: var(--accent-gold);
+    margin-bottom: 6px;
+    font-size: 1.2rem;
 }
 
-/* --- Форма --- */
-form input, form textarea {
+.form-group {
+    margin-bottom: 20px;
+    max-width: 450px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--accent-gold);
+}
+
+form input,
+form textarea {
     display: block;
     width: 100%;
     max-width: 450px;
-    margin-bottom: 20px;
     padding: 15px;
     background-color: #1a1a1a;
-    color: var(--main-text);
     border: 1px solid #444;
-    font-size: 1.1rem;
-    font-family: inherit;
+    border-radius: 6px;
+    color: var(--main-text);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, outline 0.2s ease;
 }
 
-.submit-btn {
-    background-color: var(--accent-gold);
-    color: #000;
-    border: 2px solid transparent; 
-    padding: 12px 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
+form input:focus,
+form textarea:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.35);
+}
+
+.submit-btn,
+button {
+    background-color: var(--oscar-red);
+    color: var(--main-text);
+    border: none;
+    padding: 14px 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 6px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.submit-btn:hover {
-    background-color: #e6c200;
+.submit-btn:hover,
+button:hover {
+    background-color: var(--accent-gold);
+    color: var(--main-bg);
+}
+
+.submit-btn:focus,
+button:focus {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 4px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.submit-btn:active,
+button:active {
+    transform: scale(0.97);
 }
 
 footer {
-    margin-top: 50px;
+    text-align: center;
+    padding: 30px 20px;
     border-top: 1px solid #333;
-    padding-top: 20px;
-    font-size: 1.1rem;
+    margin-top: 40px;
+    color: #aaaaaa;
 }
 
-/* --- МЕДИА-ЗАПРОСЫ (АДАПТИВНОСТЬ) --- */
-
-/* Планшеты */
-@media (max-width: 1024px) {
-    .movie-card {
-        flex: 1 1 calc(50% - 25px); /* 2 колонки для сериалов */
-    }
-    
-    /* Grid остается 2 колонки, как по заданию */
-}
-
-/* Мобильные телефоны */
 @media (max-width: 768px) {
-    body {
-        padding: 15px 20px;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
     .main-nav {
-        flex-direction: column;
         gap: 15px;
     }
 
@@ -264,25 +312,25 @@ footer {
         text-align: center;
     }
 
-    .content-wrapper {
-        flex-direction: column;
-    }
-
-    aside {
-        width: 100%;
-        margin-top: 30px;
-    }
-
     .movie-card {
-        flex: 1 1 100%; /* 1 колонка для сериалов */
+        flex: 0 0 calc((100% - 25px) / 2);
     }
 
     .directors-grid {
-        grid-template-columns: 1fr; /* 1 колонка для Grid-галереи */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2.2rem;
     }
 
-    .director-card {
-        flex-direction: column;
-        text-align: center;
+    .movie-card {
+        flex: 0 0 100%;
+    }
+
+    .directors-grid {
+        grid-template-columns: 1fr;
     }
 }

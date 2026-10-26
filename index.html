@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Крамер Кристина - Лаба 3</title>
+    <title>Крамер Кристина — Любитель кино и сериалов</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
         <h1 style="font-weight: 700; font-family: var(--font-hollywood);">Крамер Кристина</h1>
-        <h2>Любитель кино и сериалов</h2>
-        
-        <!-- Flexbox: Навигационное меню -->
+        <p class="subtitle">Любитель кино и сериалов</p>
         <nav class="main-nav">
             <a href="#about">Обо мне</a>
             <a href="#top-movies">Топ сериалов</a>
@@ -21,128 +18,123 @@
         </nav>
     </header>
 
-    <div class="content-wrapper">
-        <main>
-            <section id="about" class="about-section">
-                <img src="photo/avatar.jpg" alt="Фото профиля" class="avatar">
-                <div class="skills">
-                    <h3>Мой профиль</h3>
-                    <ul>
-                        <li>Разбор структуры сюжета</li>
-                        <li>Понимание базовых принципов операторской работы</li>
-                        <li>Оценка цветокоррекции и визуального стиля</li>
-                    </ul>
+    <main>
+        <section id="about" class="about-section">
+            <img src="photo/avatar.jpg" alt="Фото профиля" class="avatar">
+            <div class="skills">
+                <h2>Мой профиль</h2>
+                <ul>
+                    <li>Разбор структуры сюжета</li>
+                    <li>Понимание базовых принципов операторской работы</li>
+                    <li>Оценка цветокоррекции и визуального стиля</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="top-movies">
+            <h2>Топ-сериалов для просмотра</h2>
+            <div class="flex-cards-container">
+                <article class="movie-card">
+                    <div class="overlay"></div>
+                    <img src="photo/you-poster.jpg" alt="Постер сериала Ты" class="mini-poster">
+                    <div class="card-info">
+                        <h3 class="project-title">Ты</h3>
+                        <p class="movie-genre"><strong>Жанр:</strong> Психологический триллер</p>
+                        <p class="movie-year"><strong>Год:</strong> 2018 – 2025</p>
+                    </div>
+                </article>
+
+                <article class="movie-card">
+                    <div class="overlay"></div>
+                    <img src="photo/got-poster.jpg" alt="Постер сериала Игра престолов" class="mini-poster">
+                    <div class="card-info">
+                        <h3 class="project-title">Игра престолов</h3>
+                        <p class="movie-genre"><strong>Жанр:</strong> Фэнтези, драма</p>
+                        <p class="movie-year"><strong>Год:</strong> 2011 – 2019</p>
+                    </div>
+                </article>
+
+                <article class="movie-card">
+                    <div class="overlay"></div>
+                    <img src="photo/chernobyl-poster.jpg" alt="Постер сериала Чернобыль" class="mini-poster">
+                    <div class="card-info">
+                        <h3 class="project-title">Чернобыль</h3>
+                        <p class="movie-genre"><strong>Жанр:</strong> Историческая драма</p>
+                        <p class="movie-year"><strong>Год:</strong> 2019</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="directors" class="directors-section">
+            <h2>Любимые режиссёры и шоураннеры</h2>
+            <div class="directors-grid">
+                <article class="director-card">
+                    <picture>
+                        <source srcset="photo/murphy.webp" type="image/webp">
+                        <img src="murphy.webp" alt="Райан Мёрфи">
+                    </picture>
+                    <h3>Райан Мёрфи</h3>
+                    <p>Американская история ужасов, Монстр, Рэтчед</p>
+                </article>
+
+                <article class="director-card">
+                    <picture>
+                        <source srcset="photo/wan.webp" type="image/webp">
+                        <img src="wan.webp" alt="Джеймс Ван">
+                    </picture>
+                    <h3>Джеймс Ван</h3>
+                    <p>Пила, Заклятие, Астрал</p>
+                </article>
+
+                <article class="director-card">
+                    <picture>
+                        <source srcset="photo/lawrence.webp" type="image/webp">
+                        <img src="lawrence.webp" alt="Фрэнсис Лоуренс">
+                    </picture>
+                    <h3>Фрэнсис Лоуренс</h3>
+                    <p>Голодные игры, Константин, Я — легенда</p>
+                </article>
+
+                <article class="director-card">
+                    <picture>
+                        <source srcset="photo/rothenberg.webp" type="image/webp">
+                        <img src="rothenberg.webp" alt="Джейсон Ротенберг">
+                    </picture>
+                    <h3>Джейсон Ротенберг</h3>
+                    <p>Сотня (The 100)</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Обсудить фильм или предложить к просмотру</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="sender-name">Ваше имя:</label>
+                    <input type="text" id="sender-name" name="sender-name" placeholder="Введите ваше имя" required>
                 </div>
-            </section>
 
-            <!-- Flexbox карточки -->
-            <section id="top-movies">
-                <h3>Топ-сериалов для просмотра</h3>
-                <div class="flex-cards-container">
-                    
-                    <article class="movie-card">
-                        <img src="photo/you-poster.jpg" alt="Постер сериала Ты" class="mini-poster">
-                        <div class="card-info">
-                            <h4 class="project-title">Ты</h4>
-                            <p class="movie-genre"><strong>Жанр:</strong> Психологический триллер</p>
-                            <p class="movie-year"><strong>Год:</strong> 2018 – ...</p>
-                        </div>
-                    </article>
-
-                    <article class="movie-card">
-                        <img src="photo/got-poster.jpg" alt="Постер Игра престолов" class="mini-poster">
-                        <div class="card-info">
-                            <h4 class="project-title">Игра престолов</h4>
-                            <p class="movie-genre"><strong>Жанр:</strong> Фэнтези, Драма</p>
-                            <p class="movie-year"><strong>Год:</strong> 2011 – 2019</p>
-                        </div>
-                    </article>
-
-                    <article class="movie-card">
-                        <img src="photo/chernobyl-poster.jpg" alt="Постер Чернобыль" class="mini-poster">
-                        <div class="card-info">
-                            <h4 class="project-title">Чернобыль</h4>
-                            <p class="movie-genre"><strong>Жанр:</strong> Историческая драма</p>
-                            <p class="movie-year"><strong>Год:</strong> 2019</p>
-                        </div>
-                    </article>
-
+                <div class="form-group">
+                    <label for="sender-email">Ваш Email:</label>
+                    <input type="email" id="sender-email" name="sender-email" placeholder="example@mail.ru" required>
                 </div>
-            </section>
 
-            <!-- Grid галерея -->
-            <section id="directors" class="directors-section">
-                <h3>Любимые режиссёры</h3>
-                <div class="directors-grid">
-                    
-                    <article class="director-card">
-                        <!-- Использование picture + source -->
-                        <picture>
-                            <source srcset="photo/murphy.webp" type="image/webp">
-                            <img src="photo/murphy.webp" alt="Райан Мерфи" class="director-photo">
-                        </picture>
-                        <div class="director-info">
-                            <h4>Райан Мерфи</h4>
-                            <p><strong>Знаковый проект:</strong> Американская история ужасов</p>
-                        </div>
-                    </article>
-
-                    <article class="director-card">
-                        <picture>
-                            <source srcset="photo/wan.webp" type="image/webp">
-                            <img src="photo/wan.webp" alt="Джеймс Ван" class="director-photo">
-                        </picture>
-                        <div class="director-info">
-                            <h4>Джеймс Ван</h4>
-                            <p><strong>Знаковый проект:</strong> Пила</p>
-                        </div>
-                    </article>
-
-                    <article class="director-card">
-                        <picture>
-                            <source srcset="photo/lawrence.webp" type="image/webp">
-                            <img src="photo/lawrence.webp" alt="Фрэнсис Лоуренс" class="director-photo">
-                        </picture>
-                        <div class="director-info">
-                            <h4>Фрэнсис Лоуренс</h4>
-                            <p><strong>Знаковый проект:</strong> Голодные игры</p>
-                        </div>
-                    </article>
-
-                    <article class="director-card">
-                        <picture>
-                            <source srcset="photo/rothenberg.webp" type="image/webp">
-                            <img src="photo/rothenberg.webp" alt="Джейсон Ротенберг" class="director-photo">
-                        </picture>
-                        <div class="director-info">
-                            <h4>Джейсон Ротенберг</h4>
-                            <p><strong>Знаковый проект:</strong> Сотня</p>
-                        </div>
-                    </article>
-
+                <div class="form-group">
+                    <label for="movie-message">Рекомендация или отзыв:</label>
+                    <textarea id="movie-message" name="movie-message" rows="4" placeholder="Напишите, какой фильм или сериал стоит посмотреть..." required></textarea>
                 </div>
-            </section>
 
-            <section id="contact" class="contact-section">
-                <h3>Связаться со мной</h3>
-                <form action="#" method="get">
-                    <input type="text" name="user_name" placeholder="Ваше имя" required>
-                    <input type="email" name="user_email" placeholder="Ваш Email" required>
-                    <textarea name="user_message" placeholder="Какое кино обсудим?..." rows="3" required></textarea>
-                    <button type="submit" class="submit-btn">Отправить</button>
-                </form>
-            </section>
-        </main>
-
-        <aside>
-            <h3 style="margin-top: 0; font-size: 1.8rem;">Кино-предпочтения</h3>
-            <p style="font-size: 1.2rem;"><strong>Любимый жанр:</strong> Психологический триллер</p>
-        </aside>
-    </div>
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2026 Крамер Кристина. <a href="https://github.com/" target="_blank">Мой GitHub</a></p>
+        <p>&copy; 2026 Крамер Кристина. Все права защищены.</p>
+        <p><a href="https://github.com/kramerkristina" target="_blank" rel="noopener noreferrer">Мой профиль на GitHub</a></p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
